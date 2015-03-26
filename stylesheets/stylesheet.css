@@ -222,7 +222,7 @@ hr {
   background: url("../images/blacktocat.png") 0 0 no-repeat;
 }
 
-.btn-github .iconAndroid {
+.iconAndroid {
     display: inline-block;
   width: 16px;
   height: 16px;
