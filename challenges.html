@@ -39,14 +39,43 @@
           <h3>
   <a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Challenge 2</h3>
 
-  <p></p>
+
+  <h4>Challege 2.1</h4>
+  <p>
+    After a quick research i found in the class Camera.java, the useFront property use the intent
+    <code>("android.intent.extras.CAMERA_FACING", 1) </code>
+
+        <pre><code>// NOTE: This uses an undocumented, testing feature (CAMERA_FACING).
+                // It may not work in the future.
+                if (useFront) {
+                  intent.putExtra("android.intent.extras.CAMERA_FACING", 1);
+                }
+        </code></pre>
+
+<p>It seems that yhis feature is not officially documented which makes it a random feature
+    depending on the phones. For example in my One Plus One running Android Cyanogen i can test
+   the useFront() and it's working perfectly. But on another Android phone it won't.
+   Furthermore, there is a method the latest sources from Android Open Source Project more precisely in the VideoCamera class named getCameraFacingIntentExtras() which seems to be an official update of the previous functionality. Therefore that can explain why the userFront property is not working anymore.
+</p>
+
+<h4>Challege 2.2 </h4>
 
   <pre><code>$ cd your_repo_root/repo_name
   $ git fetch origin
   $ git checkout gh-pages
   </code></pre>
 
-  <p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+  <p>Basically to do so we can stick to the Barcode component design.That is to create an Activity class like  the AppInvCaptureActivity.java that we will
+     link to our component class. The difference will be that in the handler of the Activity class instead of decoding the picture taken an returning the Barcode text we'll just have to return the image taken.
+     The Activity class will create open,launch the camera and take the picture using the TakePicture() method. We can use a timer to trigger the TakePicture()  (Link here) method  on the camera and save it. Furthermore,
+     we can use the shutterCall method to play sound so that the user will know that the picture was taken.
+     Finally in our component class we'll just have to create an explicit intent and pass it the Activity class we've talked about. And we will take in the resultReturned method the picture taken and eventually raised an event "AfterPictureTaken" that
+     will indicates that a photo was taken with the camera and provides the path to the stored picture.
+   </p>
+   <p> We can add 2 properties : the time the user will wait for the picture to be taken .
+     numberOfPicture : the number of picture that will be taken (Optional)
+    The TakePicture method will then take two parameters namely the two defined properties.</p> 
+</p>
 
   <h3>
   <a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
