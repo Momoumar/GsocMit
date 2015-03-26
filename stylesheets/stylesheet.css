@@ -222,15 +222,11 @@ hr {
   background: url("../images/blacktocat.png") 0 0 no-repeat;
 }
 
-.iconAndroid {
-    display: inline-block;
-  width: 16px;
-  height: 16px;
-  margin: 1px 8px 0 0;
-  float: left;
+.btn-Android .icon {
   opacity: 0.6;
   background: url("../images/androidIcon.png") 0 0 no-repeat;
 }
+
 
 /* Links
    a, a:hover, a:visited
