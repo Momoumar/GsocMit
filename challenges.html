@@ -22,42 +22,39 @@
           <a href="RESUMECV_Mouhamadou_SallV3.0.pdf"  class="btn">Resume</a>
           <a href="challenges"  class="btn">Challenges</a>
           <a href="longAnswers.html"  class="btn">Long Answers</a>
-          <a href="https://github.com/Momoumar/" class="btn btn-github">        </section>
+          <a href="https://github.com/Momoumar/" class="btn btn-github">        
+        </section>
       </div>
     </header>
 
     <div class="container">
       <section id="main_content">
-
-
-
           <h3>
           <a id="designer-templates" class="anchor" href="#designer-templates" aria-hidden="true"><span class="octicon octicon-link"></span></a>Challenge 1</h3>
           <p>This application is built with love using Mit App Inventor 2.</p>
-          <p>This app will definitly be the best friend of your stomach. Locate restaurants within 5 minutes walk.</p>
+          <p>This app will definitly be the best friend of your stomach :-). Locate the restaurants within 5 minutes walk around you.</p>
           <a href="https://github.com/Momoumar/MosTestWs/zipball/master" class="btn">Download App as .AIA</a>
           <a href="https://github.com/Momoumar/MosTestWs/tarball/master" class="btn">Download App as .APK</a>
 
           <h3>
   <a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Challenge 2</h3>
 
-
   <h4>Challege 2.1</h4>
   <p>
-    After a quick research i found in the class Camera.java, the useFront property use the intent
+      After a quick research i found that in the class <code>Camera.java</code>, the useFront property use the intent
     <code>("android.intent.extras.CAMERA_FACING", 1) </code>
 
-        <pre><code>// NOTE: This uses an undocumented, testing feature (CAMERA_FACING).
+<pre><code>// NOTE: This uses an undocumented, testing feature (CAMERA_FACING).
                 // It may not work in the future.
-                if (useFront) {
-                  intent.putExtra("android.intent.extras.CAMERA_FACING", 1);
-                }
-        </code></pre>
+  if (useFront) {
+    intent.putExtra("android.intent.extras.CAMERA_FACING", 1);
+  }
+</code></pre>
 
-<p>It seems that yhis feature is not officially documented which makes it a random feature
+<p>It seems that this feature is not officially documented which makes it a random feature
     depending on the phones. For example in my One Plus One running Android Cyanogen i can test
    the useFront() and it's working perfectly. But on another Android phone it won't.
-   Furthermore, there is a method the latest sources from Android Open Source Project more precisely in the VideoCamera class named getCameraFacingIntentExtras() which seems to be an official update of the previous functionality. Therefore that can explain why the userFront property is not working anymore.
+   Furthermore, there is a method added in the latest sources from Android Open Source Project more precisely in the VideoCamera class named getCameraFacingIntentExtras() which seems to be an official update of the previous functionality. Therefore that can explain why the userFront property is not working anymore.
 </p>
 
 <h4>Challege 2.2 </h4>
@@ -67,17 +64,23 @@
   $ git checkout gh-pages
   </code></pre>
 
-  <p>Basically to do so we can stick to the Barcode component design.That is to create an Activity class like  the AppInvCaptureActivity.java that we will
-     link to our component class. The difference will be that in the handler of the Activity class instead of decoding the picture taken an returning the Barcode text we'll just have to return the image taken.
-     The Activity class will create open,launch the camera and take the picture using the TakePicture() method. We can use a timer to trigger the TakePicture()  (Link here) method  on the camera and save it. Furthermore,
-     we can use the shutterCall method to play sound so that the user will know that the picture was taken.
-     Finally in our component class we'll just have to create an explicit intent and pass it the Activity class we've talked about. And we will take in the resultReturned method the picture taken and eventually raised an event "AfterPictureTaken" that
-     will indicates that a photo was taken with the camera and provides the path to the stored picture.
-   </p>
-   <p> We can add 2 properties : the time the user will wait for the picture to be taken .
-     numberOfPicture : the number of picture that will be taken (Optional)
-    The TakePicture method will then take two parameters namely the two defined properties.</p>
+<p>Basically to do so we can stick to the Barcode component design.That is to create an Activity class like  the AppInvCaptureActivity.java that will be linked to our component class. The difference will be that in the handler of the Activity class instead of decoding the picture taken in order to  return the Barcode text we'll just have to return the image taken.
 </p>
+<p> The Activity class will create open,launch the camera and take the picture using the <code>takePicture(ShutterCallback, PictureCallback, PictureCallback, PictureCallback)</code> method.Thedocumentation can be found
+    <a href="http://developer.android.com/reference/android/hardware/Camera.html#takePicture(android.hardware.Camera.ShutterCallback, android.hardware.Camera.PictureCallback, android.hardware.Camera.PictureCallback, android.hardware.Camera.PictureCallback)">here</a>.
+Also, we can use a timer to trigger the call of themethod on the camera. Furthermore,
+    we can use the ShutterCallback parameter (<i>Callback interface used to signal the moment of actual image capture.</i>) to play a sound so that the user will know that the picture was taken. </p>
+ <p>Finally in our component class we'll just have to create an explicit intent and pass it the Activity class we've talked about. And we will take in the resultReturned method the picture taken and eventually raised an event "AfterPictureTaken" that will indicates that a photo was taken with the camera and provides the path to the stored picture.
+</p>
+<p> We can add 2 properties: @SimpleProperty(The time the user will wait for the picture to be taken once the funcyion is called) and 
+     @SimpleProperty(The  number of picture that will be taken (Optional)</p>
+    <p> We can also add a TakePicture( int time, int numberOfPictures).</p>
+<h4>Quick Design Snippets </h4>
+          
+  <pre><code>$ cd your_repo_root/repo_name
+  $ git fetch origin
+  $ git checkout gh-pages
+  </code></pre>
 
   <h3>
   <a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
