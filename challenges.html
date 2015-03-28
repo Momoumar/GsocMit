@@ -77,7 +77,7 @@
     <a href="http://developer.android.com/reference/android/hardware/Camera.html#takePicture(android.hardware.Camera.ShutterCallback, android.hardware.Camera.PictureCallback, android.hardware.Camera.PictureCallback, android.hardware.Camera.PictureCallback)">here</a>.
 Also, we can use a timer to trigger the call of the method on the camera. Furthermore,
     we can use the ShutterCallback parameter (<i>Callback interface used to signal the moment of actual image capture.</i>) to play a sound so that the user will know that the picture was taken. </p>
-          <p>Finally in our component class, we'll just have to create an explicit Intent and pass it the Activity class we've talked about. And we will take in the <code>resultReturned</code>code> method, the picture taken and eventually raised an event <code>AfterPictureTaken</code>code> that will indicate that a photo was taken with the camera and provides the path to the stored picture.
+          <p>Finally in our component class, we'll just have to create an explicit Intent and pass it the Activity class we've talked about. And we will take in the <code> void resultReturned(int requestCode, int resultCode, Intent data)</code> method, the picture taken and eventually raised an event <code>public void AfterPicture(String image) </code> that will indicate that a photo was taken with the camera and provides the path to the stored picture.
 </p>
 <p> We can add 2 properties: @SimpleProperty(The time the user will wait for the picture to be taken once the function is called) and 
      @SimpleProperty(The number of pictures that will be taken (default = 1) )</p>
