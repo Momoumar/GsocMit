@@ -51,7 +51,7 @@
 
   <h4>Challege 2.1: Front camera property issues</h4>
   <p>
-      After a quick research i found that in the class <code>Camera.java</code>, the useFront property use the intent
+      After a quick research,I found that in the class <code>Camera.java</code>, the useFront property use the intent
     <code>("android.intent.extras.CAMERA_FACING", 1) </code>
 
 <pre><code>// NOTE: This uses an undocumented, testing feature (CAMERA_FACING).
@@ -69,17 +69,17 @@
 
 <h4>Challege 2.2: Automatic camera design </h4>
 
-<p>Basically to do so we can stick to the Barcode component design.That is to create an Activity class like  the AppInvCaptureActivity.java that will be linked to our component class. The difference will be that in the handler of the Activity class instead of decoding the picture taken in order to  return the Barcode text we'll just have to return the image taken.
+          <p>I think sticking to the Barcode component design.That is to create an Activity class like the <code>AppInvCaptureActivity.java</code> class that will be linked to our component class. The difference will be that in the handler of the Activity class instead of decoding the picture taken in order to return the Barcode Text we'll just have to return the image taken.
 </p>
-<p> The Activity class will create open,launch the camera and take the picture using the <code>takePicture(ShutterCallback, PictureCallback, PictureCallback, PictureCallback)</code> method.Thedocumentation can be found
+<p> The Activity class will create, open,launch the camera and take the picture using the <code>takePicture(ShutterCallback, PictureCallback, PictureCallback, PictureCallback)</code> method. The documentation can be found
     <a href="http://developer.android.com/reference/android/hardware/Camera.html#takePicture(android.hardware.Camera.ShutterCallback, android.hardware.Camera.PictureCallback, android.hardware.Camera.PictureCallback, android.hardware.Camera.PictureCallback)">here</a>.
-Also, we can use a timer to trigger the call of themethod on the camera. Furthermore,
+Also, we can use a timer to trigger the call of the method on the camera. Furthermore,
     we can use the ShutterCallback parameter (<i>Callback interface used to signal the moment of actual image capture.</i>) to play a sound so that the user will know that the picture was taken. </p>
- <p>Finally in our component class we'll just have to create an explicit intent and pass it the Activity class we've talked about. And we will take in the resultReturned method the picture taken and eventually raised an event "AfterPictureTaken" that will indicates that a photo was taken with the camera and provides the path to the stored picture.
+          <p>Finally in our component class, we'll just have to create an explicit Intent and pass it the Activity class we've talked about. And we will take in the <code>resultReturned(...)<code> method, the picture taken and eventually raised an event <code>AfterPictureTaken</code>code> that will indicate that a photo was taken with the camera and provides the path to the stored picture.
 </p>
-<p> We can add 2 properties: @SimpleProperty(The time the user will wait for the picture to be taken once the funcyion is called) and 
-     @SimpleProperty(The  number of picture that will be taken (default = 1) )</p>
-    <p> Why not adding a TakePicture( int time, int numberOfPictures) methods also .</p>
+<p> We can add 2 properties: @SimpleProperty(The time the user will wait for the picture to be taken once the function is called) and 
+     @SimpleProperty(The number of pictures that will be taken (default = 1) )</p>
+    <p> Why not adding a TakePicture( int time, int numberOfPictures) method also .</p>
           
           
     <h5>References</h5>
@@ -120,7 +120,7 @@ Also, we can use a timer to trigger the call of themethod on the camera. Further
           <li>You can also visit my github account even if there is not much on it :-)
           <a href="https://github.com/Momoumar/" class="btn btn-github"><span class="icon"></span>View on GitHub</a></li>
             
-            <li>Or you can just contact me at (<a href="mailto:mouhamadou.sall@polymtl.ca" class="user-mention">@Momoumar</a>)</li> 
+            <li>Or you can just contact me at (<a href="mailto:mouhamadou.sall@polymtl.ca" class="user-mention">mouhamadou.sall@polymtl.ca</a>)</li> 
           
       </ul>
 </p>
